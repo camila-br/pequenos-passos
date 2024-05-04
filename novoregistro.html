@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros Passos - Novo Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        #top-bar {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #menu-icon {
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #options-menu {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            right: 10px;
+            top: 40px;
+            z-index: 1;
+        }
+
+        #profile {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        #profile h2 {
+            margin: 5px 0;
+        }
+
+        #profile h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        #profile p {
+            margin: 3px 0;
+            font-size: 14px;
+            color: #888888;
+        }
+
+        #top-bar {
+            background-color: #24478f;
+        }
+
+        #registro-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 10px;
+            color: #24478f;
+        }
+
+        .registro-item {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .registro-item label {
+            font-weight: bold;
+            margin-right: 5px;
+            color: #24478f;
+        }
+
+        .registro-item input[type="date"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #555;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #observacao {
+            width: calc(100% - 22px);
+            height: 100px;
+            resize: vertical;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #anexo-input {
+            margin-bottom: 10px;
+        }
+
+        #tag-container {
+            display: flex;
+            margin-top: 5px;
+        }
+
+        .tag {
+            background-color: #e0e0e0;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tag:hover {
+            background-color: #ccc;
+        }
+
+        .tag.selected {
+            background-color: #4b692f;
+            color: white;
+        }
+
+        .tag-close {
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            background-color: #e0e0e0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .tag-close:hover {
+            background-color: #ccc;
+        }
+
+        #buttons-container {
+            text-align: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .button.cancel {
+            background-color: #8c8c8c;
+            color: white;
+        }
+
+        .button.cancel:hover {
+            background-color: #6b6b6b;
+        }
+
+        .button.save {
+            background-color: #f59e00;
+            color: white;
+        }
+
+        .button.save:hover {
+            background-color: #d18700;
+        }
+    </style>
+</head>
+<body>
+    <div id="top-bar">
+        <i id="menu-icon" class="fas fa-bars"></i>
+        <div id="options-menu">
+            <p>Opção 1</p>
+            <p>Opção 2</p>
+            <p>Opção 3</p>
+        </div>
+    </div>
+
+    <div id="profile">
+        <h2>Mini Maternal</h2>
+        <img src="garota.png" alt="Foto do perfil">
+        <h3>Maria Alice</h3>
+        <p>2 anos</p>
+
+        <div id="registro">
+            <h4 id="registro-title" style="text-align: left;">Novo registro</h4>
+            <div class="registro-item">
+                <label for="data-input">Data:</label>
+                <input type="date" id="data-input">
+            </div>
+            <div class="registro-item">
+                <label>Tags:</label>
+                <div id="tag-container">
+                    <div class="tag" data-tag="Atitude">Atitude<span class="tag-close">&times;</span></div>
+                    <div class="tag" data-tag="Brincadeiras">Brincadeiras<span class="tag-close">&times;</span></div>
+                    <div class="tag" data-tag="Comunicação">Comunicação<span class="tag-close">&times;</span></div>
+                    <div class="tag" data-tag="Movimento">Movimento<span class="tag-close">&times;</span></div>
+                    <div class="tag" data-tag="Outros">Outros<span class="tag-close">&times;</span></div>
+                </div>
+            </div>
+            <div class="registro-item">
+                <label for="observacao">Observação:</label>
+                <textarea id="observacao" placeholder="Digite sua observação aqui"></textarea>
+            </div>
+            <div class="registro-item">
+                <label for="anexo-input">Anexo de imagem:</label>
+                <input type="file" id="anexo-input">
+            </div>
+            <div id="buttons-container">
+                <button class="button cancel">Cancelar</button>
+                <button class="button save">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const optionsMenu = document.getElementById('options-menu');
+
+        menuIcon.addEventListener('click', () => {
+            if (optionsMenu.style.display === 'none') {
+                optionsMenu.style.display = 'block';
+            } else {
+                optionsMenu.style.display = 'none';
+            }
+        });
+
+        const tags = document.querySelectorAll('.tag');
+        tags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.classList.toggle('selected');
+            });
+        });
+
+        const tagCloseButtons = document.querySelectorAll('.tag-close');
+        tagCloseButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const tag = button.parentElement;
+                tag.classList.remove('selected');
+            });
+        });
+    </script>
+</body>
+</html>
