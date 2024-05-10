@@ -11,12 +11,18 @@ class LoginController extends Controller
     }
     public function auth(request $r){
         $r->validate([
-            'password' => 'required|string|max:255',
-            'email' => 'required|email',
+            'email' => 'required',
+            'password' => 'required'
         ]);
         $credenciais=$r->only('email','password');
         if(Auth::attempt($credenciais)){
-            $r->session()->put('sucesso','usuario autenticado');
+            $user=Auth::user();
+            if ($user->role == 'diretor'):
+                $r->session()->put('diretor','diretor autenticado');
+            else:
+                $r->session()->put('professor','professor autenticado');
+            endif;
+            
             return redirect()->route('home.index');
         }
         else{
@@ -25,8 +31,8 @@ class LoginController extends Controller
     }
     public function logout(Request $r){
         Auth::logout();
-        $r->session()->invalidate();
-        $r->session()->regenerateToken();
+        // session()->forget('autenticado');
+        session()->flush();
         return redirect()->route('login.index');
     }
 }

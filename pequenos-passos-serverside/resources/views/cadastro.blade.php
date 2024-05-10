@@ -26,8 +26,13 @@
     <form action="{{ route('cadastro.store') }}" method="POST">
     @csrf
     nome:<input type="text" name="name"><br>
+    sobrenome:<input type="text" name="lastname"><br>
     email:<input type="email" name="email"><br>
     senha:<input type="password" name="password"><br>
+    <select name="role" id="">
+        <option value="diretor">Diretor</option>
+        <option value="professor">Professor</option>
+    </select>
     <button type="submit">cadastrar</button>
     </form>
 </body>

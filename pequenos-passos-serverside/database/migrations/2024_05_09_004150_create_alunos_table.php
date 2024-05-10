@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nome_responsavel');
             $table->string('telefone');
             $table->unsignedBigInteger('turma_id');
-            $table->foreign('turma_id')->references('id')->on('turmas');
+            $table->foreign('turma_id')->references('id')->on('turmas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

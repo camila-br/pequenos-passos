@@ -7,14 +7,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\TurmaController;
+use App\Http\Controllers\BimestreController;
+use App\Http\Controllers\RegistroController;
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
 Route::get('/',[LoginController::class,'index'])->name('login.index');
 Route::post('/',[LoginController::class,'auth'])->name('login.auth');
-Route::post('/logout',[LoginController::class,'logout'])->name('login.logout');
+Route::get('/logout',[LoginController::class,'logout'])->name('login.logout');
 
 Route::get('/cadastro',[CadastroController::class,'index'])->name('cadastro.index');
 Route::post('/cadastro',[CadastroController::class,'store'])->name('cadastro.store');
@@ -25,6 +24,13 @@ Route::post('/cadastrar-aluno',[AlunoController::class,'store'])->name('aluno.st
 
 Route::get('/cadastrar-turma',[TurmaController::class,'index'])->name('turma.index');
 Route::post('/cadastrar-turma',[TurmaController::class,'store'])->name('turma.store');
+Route::get('/turma/{id}',[TurmaController::class,'show'])->name('turma.show');
 
 Route::get('/cadastrar-Professor',[ProfessorController::class,'index'])->name('professor.index');
 Route::post('/cadastrar-Professor',[ProfessorController::class,'store'])->name('professor.store');
+
+Route::get('/cadastrar-periodo-letivo',[BimestreController::class,'index'])->name('bimestre.index');
+Route::post('/cadastrar-periodo-letivo',[BimestreController::class,'store'])->name('bimestre.store');
+
+Route::get('/criar-registro',[RegistroController::class,'index'])->name('registro.index');
+Route::post('/criar-registro',[RegistroController::class,'store'])->name('registro.store');

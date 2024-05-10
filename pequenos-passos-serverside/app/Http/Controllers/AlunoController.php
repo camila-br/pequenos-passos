@@ -10,7 +10,7 @@ class AlunoController extends Controller
 {
     public function index(){
         $turmas=Turma::all();
-        return view('aluno',compact('turmas'));
+        return view('diretor/aluno',compact('turmas'));
     }
     public function store(Request $r){
         $r->validate([
