@@ -57,7 +57,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="date" name="data_nascimento" id="data_nascimento">
+                <input type="date" name="data_nascimento" id="data_nascimento" style="color:gray;">
                 <label for="data_nascimento">Data de nascimento</label>
             </div>
         </div>
