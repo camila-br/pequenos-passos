@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('registros', function (Blueprint $table) {
             $table->id();
+            $table->string('texto');
+            $table->string('foto');
+            $table->string('eixo');
+            $table->date('data');
+            $table->unsignedBigInteger('aluno_id');
+            $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('bimestre_id');
+            $table->foreign('bimestre_id')->references('id')->on('bimestres')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

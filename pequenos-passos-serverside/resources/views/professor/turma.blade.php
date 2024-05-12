@@ -8,17 +8,15 @@
 </head>
 <body>
     
-    <table>
+    <table style="text-align:center">
     <tr>
         <th>Nome</th>
-        <th>Sobrenome</th>
         <th>Data de Nascimento</th>
         <th>Nome do Responsavel</th>
     </tr>
     @foreach($alunos as $aluno)
         <tr>
-        <td>{{ $aluno->nome }}</td>
-        <td>{{ $aluno->sobrenome }}</td>
+        <td><a href="{{ route('aluno.show',$aluno->id) }}">{{ $aluno->nome }}  {{ $aluno->sobrenome }}</a></td>
         <td>{{ $aluno->data_nascimento }}</td>
         <td>{{ $aluno->nome_responsavel }}</td>
         </tr>

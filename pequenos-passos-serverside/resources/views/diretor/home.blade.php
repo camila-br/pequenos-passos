@@ -4,19 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
     <title>Home</title>
 </head>
 <body>
-    <h1>Home</h1>
-    <a href="{{ route('login.logout') }}">sair</a>
-    cadastro de pessoas <br>
-    <a href="{{ route('aluno.index') }}">novo aluno </a> <br>
-    <a href="{{ route('professor.index') }}">novo professor </a> <br>
+    <a href="{{ route('login.logout')}}">Sair</a>
+   <div class="container">
+       <div class="row">
+            <h5>Bem vindo, {{ $user->name  }}</h5>
+       </div>
 
-    cadastros gerais <br>
-    <a href="{{ route('turma.index') }}">turma </a> <br>
-    <a href="{{ route('bimestre.index') }}">periodo letivo </a> <br>
-    <a href="">criterio de avaliação</a> <br>
+       <div class="row">
+            <h6>O que deseja ver?</h6>
+            <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
+                <a href="" class="btn white blue-text darken-2" style="width:85%;">Turmas</a>
+            </div>
+            <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
+                <a href="" class="btn white blue-text darken-2" style="width:85%;">Professores</a>
+            </div>
+       </div>
+
+       <div class="row">
+            <h6>Cadastro de pessoas</h6>
+            <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
+                <a href="{{ route('aluno.index') }}" class="btn orange" style="width:85%;">Turmas</a>
+            </div>
+            <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
+                <a href="{{ route('professor.index') }}" class="btn green darken-3" style="width:85%;">Professores</a>
+            </div>
+       </div>
+
+       <div class="row">
+            <h6>Cadastro gerais</h6>
+            <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
+                <a href="{{ route('turma.index') }}" class="btn purple darken-4" style="width:85%;">Turma</a>
+            </div>
+            <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
+                <a href="{{ route('bimestre.index') }}" class="btn grey darken-3" style="width:85%;">Periodo</a>
+            </div>
+            <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
+                <a href="{{ route('criterio.index') }}" class="btn grey darken-3" style="width:85%;">Critério de avaliação</a>
+            </div>
+       </div>
+       
+</div>
+
 <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

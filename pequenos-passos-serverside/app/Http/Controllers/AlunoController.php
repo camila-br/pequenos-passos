@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Aluno;
 use App\Models\Turma;
+use App\Models\Bimestre;
 
 class AlunoController extends Controller
 {
@@ -31,5 +32,12 @@ class AlunoController extends Controller
         $aluno->turma_id=$r->turma;
         $aluno->save();
         return redirect()->back()->with('sucesso','aluno cadastrado com sucesso!');
+    }
+
+    public function show($id){
+        $aluno=Aluno::find($id);
+        $bimestre=Bimestre::where('ano_letivo',2024)->first();
+        // $data_formatada=$bimestre->primeiro_bimestre_inicio->format('d/m/Y');
+        return view('professor/aluno',compact('aluno','bimestre'));
     }
 }

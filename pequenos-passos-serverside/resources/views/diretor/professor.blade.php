@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
     <title>Cadastrar Professor</title>
 </head>
 <body>
-@if ($errors->any())
+    <div class="container">
+    @if ($errors->any())
     <div class="">
         <ul>
             @foreach ($errors->all() as $error)
@@ -22,13 +24,42 @@
         {{ session('sucesso') }}
     </div>
 @endif
+    <div class="row center">
+        <h5>CADASTRAR PROFESSOR</h5>
+    </div>
     <form action="{{ route('professor.store') }}" method="post">
     @csrf
-    <input type="text" name="nome"placeholder="nome" ><br>
-    <input type="text" name="sobrenome" placeholder="sobrenome"><br>
-    <input type="email" name="email" placeholder="email"><br>
-    <!-- <input type="password" name="senha" placeholder="senha"><br> -->
-    <button type="submit">Cadastrar</button>
+
+    <div class="row center">
+        <div class="input-field s12">
+            <input type="text" name="nome"  id="professor_id">
+            <label for="professor_nome">Nome</label>
+        </div>
+    </div>
+
+    <div class="row center">
+        <div class="input-field s12">
+            <input type="text" name="sobrenome" id="professor_sobrenome">
+            <label for="professor_sobrenome">Sobrenome</label>
+        </div>
+    </div>
+    
+    <div class="row center">
+        <div class="input-field s12">
+        <input type="email" name="email" id="professor_email">
+        <label for="professor_email">E-mail</label>
+        </div>
+    </div>
+    
+    
+    <div class="row center" style="width:100%; display:flex; flex-wrap:nowrap; justify-content:space-around;">
+            <a href="" class="btn" style="width:45%;">Cancelar</a>
+            <button type="submit" class="btn orange" style="width:45%;">Salvar</button>
+    </div>
+    
     </form>
+    </div>
+    <script src="{{ asset('lib/js/materialize.min.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

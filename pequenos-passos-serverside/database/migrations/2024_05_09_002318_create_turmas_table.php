@@ -26,7 +26,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('turmas');
-        $table->dropForeign(['professor_id']);
-        $table->dropColumn('professor_id');
+       
     }
 };

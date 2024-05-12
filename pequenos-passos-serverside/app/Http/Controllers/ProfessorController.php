@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Professor;
+use App\Models\Criterio;
 use Illuminate\Support\Facades\Hash;
 
 class ProfessorController extends Controller
 {
     public function index(){
-        return view('diretor/professor');
+        $criterios=Criterio::all();
+        return view('diretor/professor',compact('criterios'));
     }
     public function store(Request $r){
         $r->validate([

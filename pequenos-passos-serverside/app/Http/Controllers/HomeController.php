@@ -11,7 +11,8 @@ class HomeController extends Controller
     
     public function index(){
         if(session()->has('diretor')){
-            return view('diretor/home');
+            $user=Auth::user();
+            return view('diretor/home',compact('user'));
         }else if (session()->has('professor')){
             $turmas=Turma::all();
             return view('professor/home',compact('turmas'));
