@@ -12,7 +12,7 @@ use App\Models\Bimestre;
 
 class RegistroController extends Controller
 {
-    public function index($id){
+    public function index($ano,$id){
         $aluno=Aluno::find($id);
         $criterios=Criterio::all();
         $aluno_id=$id;

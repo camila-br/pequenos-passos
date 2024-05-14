@@ -27,7 +27,7 @@
        <div class="row">
             <h6>Cadastro de pessoas</h6>
             <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
-                <a href="{{ route('aluno.index') }}" class="btn orange" style="width:85%;">Turmas</a>
+                <a href="{{ route('aluno.index') }}" class="btn orange" style="width:85%;">Aluno</a>
             </div>
             <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
                 <a href="{{ route('professor.index') }}" class="btn green darken-3" style="width:85%;">Professores</a>

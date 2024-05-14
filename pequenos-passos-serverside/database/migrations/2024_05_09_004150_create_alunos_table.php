@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('data_nascimento');
             $table->string('nome_responsavel');
             $table->string('telefone');
+            $table->string('foto_aluno');
             $table->unsignedBigInteger('turma_id');
             $table->foreign('turma_id')->references('id')->on('turmas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

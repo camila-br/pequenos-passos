@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Professor</title>
+    <title>Bimestre</title>
 </head>
 <body>
-    <h1>Professor</h1>
-    @foreach ($bimestres as $bimestre)
-    <a href="{{ route('bimestre.show',$bimestre->ano_letivo) }}">{{ $bimestre->ano_letivo }}</a><br>
+    Bimestre
+    
+    @foreach($turmas as $turma)
+    <a href="{{ route('turma.show',['ano'=>$bimestre->ano_letivo,'id'=>$turma->id]) }}">{{ $turma->nome }}</a>
+       {{ $turma->nome }}
     @endforeach
-    <a href="{{ route('login.logout') }}">sair</a>
 </body>
 </html>

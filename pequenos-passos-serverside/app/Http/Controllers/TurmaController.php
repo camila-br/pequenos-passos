@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Professor;
 use App\Models\Turma;
 use App\Models\Aluno;
+use App\Models\Bimestre;
 
 class TurmaController extends Controller
 {
@@ -26,10 +27,12 @@ class TurmaController extends Controller
         $turma->save();
         return redirect()->back()->with('sucesso','turma cadastrado com sucesso!');
     }
-    public function show($id){
+   
+    public function show($ano,$id){
+        $bimestre=Bimestre::where('ano_letivo',$ano)->first();
         $turma=Turma::find($id);
         $professor=Professor::find($turma->professor_id);
         $alunos=Aluno::where('turma_id',$turma->id)->get();
-        return view('professor/turma',compact('turma','professor','alunos'));
+        return view('professor/turma',compact('turma','professor','alunos','bimestre'));
     }
 }

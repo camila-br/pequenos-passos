@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Cadastar criterio de avaliação</title>
 </head>
 <body>
@@ -45,7 +46,10 @@
     <div class="row" style="margin:80px 0px;">
         <h6 style="margin-bottom:15px;">Critérios cadastrados:</h6>
         @foreach($criterios as $criterio)
-            <a class="waves-effect waves-light btn blue lighten-2 white-text" style="border-radius:15px; margin:5px 5px;">{{ $criterio->nome }}</a>
+            <div class="chip btn">
+            {{ $criterio->nome }}
+            <i class="close material-icons">close</i>
+            </div>
         @endforeach
     </div>
 </div>

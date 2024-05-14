@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bimestre;
+use App\Models\Turma;
 
 class BimestreController extends Controller
 {
@@ -41,6 +42,11 @@ class BimestreController extends Controller
         $bimestre->save();
         return redirect()->back()->with('sucesso','periodo-letivo cadastrado com sucesso!');
 
+    }
 
+    public function show($ano){
+        $bimestre=Bimestre::where('ano_letivo',$ano)->first();
+        $turmas=Turma::all();
+        return view('professor/bimestre',compact('bimestre','turmas'));
     }
 }

@@ -7,7 +7,7 @@
     <title>{{ $turma->nome }}</title>
 </head>
 <body>
-    
+    {{ $bimestre->primeiro_bimestre_inicio }}
     <table style="text-align:center">
     <tr>
         <th>Nome</th>
@@ -16,7 +16,7 @@
     </tr>
     @foreach($alunos as $aluno)
         <tr>
-        <td><a href="{{ route('aluno.show',$aluno->id) }}">{{ $aluno->nome }}  {{ $aluno->sobrenome }}</a></td>
+        <td><a href="{{ route('aluno.show',['ano'=>$bimestre->ano_letivo,'id'=>$aluno->id]) }}">{{ $aluno->nome }}  {{ $aluno->sobrenome }}</a></td>
         <td>{{ $aluno->data_nascimento }}</td>
         <td>{{ $aluno->nome_responsavel }}</td>
         </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Turma;
+use App\Models\Bimestre;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,8 @@ class HomeController extends Controller
             return view('diretor/home',compact('user'));
         }else if (session()->has('professor')){
             $turmas=Turma::all();
-            return view('professor/home',compact('turmas'));
+            $bimestres=Bimestre::all();
+            return view('professor/home',compact('turmas','bimestres'));
         }else{
             return redirect()->route('login.index');
         }
