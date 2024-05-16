@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
-    <title>Cadastrar Turma</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 @if ($errors->any())
@@ -18,12 +18,20 @@
     </div>
 @endif
 
-@if (session('sucesso'))
-    <div class="">
-        {{ session('sucesso') }}
-    </div>
-@endif
+
     <div class="container">
+    <div class="row center">
+@if (session('sucesso'))
+            <div class="card green white-text" id="alerta" style=";">
+                <div class="card-content">
+                    <span class="card-title">
+                        <i class="material-icons right" style="cursor:pointer;" onclick="closeAlerta()">close</i>
+                    </span>
+                    {{ session('sucesso') }}
+                </div>
+            </div>
+        @endif
+</div>
         <div class="row center">
             <h4>Cadastrar Turma</h4>
         </div>

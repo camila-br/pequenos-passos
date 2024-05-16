@@ -7,7 +7,7 @@ use App\Models\Aluno;
 use App\Models\Turma;
 use App\Models\Bimestre;
 use App\Models\Registro;
-
+use Carbon\Carbon;
 class AlunoController extends Controller
 {
     public function index(){
@@ -47,7 +47,10 @@ class AlunoController extends Controller
         $aluno=Aluno::find($id);
         $registros=Registro::where('aluno_id',$id);
         $bimestre=Bimestre::where('ano_letivo',$ano)->first();
-        // $data_formatada=$bimestre->primeiro_bimestre_inicio->format('d/m/Y');
-        return view('professor/aluno',compact('aluno','bimestre','registros'));
+        $registro_primeiro=Registro::whereBetween('data',[$bimestre->primeiro_bimestre_inicio,$bimestre->primeiro_bimestre_fim])->where('aluno_id',$aluno->id)->get();
+        $registro_segundo=Registro::whereBetween('data',[$bimestre->segundo_bimestre_inicio,$bimestre->segundo_bimestre_fim])->where('aluno_id',$aluno->id)->get();
+        $registro_terceiro=Registro::whereBetween('data',[$bimestre->terceiro_bimestre_inicio,$bimestre->terceiro_bimestre_fim])->where('aluno_id',$aluno->id)->get();
+        $registro_quarto=Registro::whereBetween('data',[$bimestre->quarto_bimestre_inicio,$bimestre->quarto_bimestre_fim])->where('aluno_id',$aluno->id)->get();
+        return view('professor/aluno',compact('aluno','bimestre','registros','registro_primeiro','registro_segundo','registro_terceiro','registro_quarto'));
     }
 }

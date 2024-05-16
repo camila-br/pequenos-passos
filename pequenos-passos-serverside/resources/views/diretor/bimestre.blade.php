@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Cadastrar Periodo Letivo</title>
 </head>
 <body>
@@ -19,11 +20,18 @@
     </div>
 @endif
 
-@if (session('sucesso'))
-    <div class="">
-        {{ session('sucesso') }}
+    <div class="row center">
+    @if (session('sucesso'))
+            <div class="card green white-text" id="alerta" style=";">
+                <div class="card-content">
+                    <span class="card-title">
+                        <i class="material-icons right" style="cursor:pointer;" onclick="closeAlerta()">close</i>
+                    </span>
+                    {{ session('sucesso') }}
+                </div>
+            </div>
+        @endif
     </div>
-@endif
     <div class="row center">
         <h5>CADASTRAR PERIODO LETIVO</h5>
     </div>

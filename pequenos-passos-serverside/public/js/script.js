@@ -1,5 +1,8 @@
 M.AutoInit();
 
+function closeAlerta(){
+    document.querySelector('#alerta').remove();
+}
 function avatarPreview(){
     console.log('ok')
     let fileInput=document.querySelector('#file');

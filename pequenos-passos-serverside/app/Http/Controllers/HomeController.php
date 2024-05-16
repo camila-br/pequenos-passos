@@ -17,7 +17,8 @@ class HomeController extends Controller
         }else if (session()->has('professor')){
             $turmas=Turma::all();
             $bimestres=Bimestre::all();
-            return view('professor/home',compact('turmas','bimestres'));
+            $user=Auth::user();
+            return view('professor/home',compact('turmas','bimestres','user'));
         }else{
             return redirect()->route('login.index');
         }

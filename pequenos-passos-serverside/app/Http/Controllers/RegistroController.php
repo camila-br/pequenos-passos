@@ -16,25 +16,24 @@ class RegistroController extends Controller
         $aluno=Aluno::find($id);
         $criterios=Criterio::all();
         $aluno_id=$id;
-        return view('professor/registro',compact('aluno','criterios','aluno_id'));
+        $bimestre=Bimestre::where('ano_letivo',$ano)->first();
+        return view('professor/registro',compact('aluno','criterios','aluno_id','bimestre'));
     }
 
-    public function store(Request $r,$id){
+    public function store(Request $r,$ano,$id){
         $r->validate([
             'texto'=>'required'
         ]);
         $registro=new Registro;
         $aluno=Aluno::find($id);
-        // $bimeste=Bimestre::find(1);
         $registro->texto=$r->texto;
         $registro->eixo=$r->eixo;
         $registro->data=Carbon::now()->toDateString();
         $registro->aluno_id=$aluno->id;
-        $registro->bimestre_id=1;
         $registro->foto='';
         $registro->save();
 
-        return redirect()->back()->with('sucesso','registro salvo');
+        return redirect()->route('aluno.show',['ano'=>$ano,'id'=>$aluno->id])->with('sucesso','registro salvo');
 
         
 

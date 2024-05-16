@@ -19,8 +19,6 @@ return new class extends Migration
             $table->date('data');
             $table->unsignedBigInteger('aluno_id');
             $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('bimestre_id');
-            $table->foreign('bimestre_id')->references('id')->on('bimestres')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

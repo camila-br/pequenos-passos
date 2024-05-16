@@ -10,6 +10,9 @@ use App\Http\Controllers\TurmaController;
 use App\Http\Controllers\BimestreController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\CriterioController;
+use App\Http\Controllers\ListProfessor;
+use App\Http\Controllers\ListTurma;
+
 
 Route::get('/',[LoginController::class,'index'])->name('login.index');
 Route::post('/',[LoginController::class,'auth'])->name('login.auth');
@@ -35,7 +38,10 @@ Route::post('/cadastrar-criterio-de-avaliacao',[CriterioController::class,'store
 
 Route::get('/cadastrar-periodo-letivo',[BimestreController::class,'index'])->name('bimestre.index');
 Route::post('/cadastrar-periodo-letivo',[BimestreController::class,'store'])->name('bimestre.store');
-Route::get('/home/{ano_letivo}',[BimestreController::class,'show'])->name('bimestre.show');
+Route::get('/home/{ano_letivo}/turmas',[BimestreController::class,'show'])->name('bimestre.show');
 
-Route::get('/criar-registro/{ano}/{id}',[RegistroController::class,'index'])->name('registro.index');
-Route::post('/criar-registro/{id}',[RegistroController::class,'store'])->name('registro.store');
+Route::get('/criar-registro/{ano}/aluno/{id}',[RegistroController::class,'index'])->name('registro.index');
+Route::post('/criar-registro/{ano}/aluno/{id}',[RegistroController::class,'store'])->name('registro.store');
+
+Route::get('/home/professores',[ListProfessor::class,'index'])->name('professores.index');
+Route::get('/home/turmas',[ListTurma::class,'index'])->name('turmas.index');
