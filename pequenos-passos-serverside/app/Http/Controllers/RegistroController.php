@@ -28,7 +28,7 @@ class RegistroController extends Controller
         $aluno=Aluno::find($id);
         $registro->texto=$r->texto;
         $registro->eixo=$r->eixo;
-        $registro->data=Carbon::now()->toDateString();
+        $registro->data=$r->data_registro;
         $registro->aluno_id=$aluno->id;
         $registro->foto='';
         $registro->save();

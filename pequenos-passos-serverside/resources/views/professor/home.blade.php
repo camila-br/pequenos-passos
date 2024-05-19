@@ -40,8 +40,7 @@
        </div>
        
     </div>
-    
-
+  
     <a href="{{ route('login.logout') }}">sair</a>
     <script src="{{ asset('lib/js/materialize.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>

@@ -57,6 +57,12 @@
     <form action="{{ route('registro.store',['ano'=>$bimestre->ano_letivo,'id'=>$aluno_id]) }}" method="POST">
     @csrf
     <div class="row">
+            <div class="input-field col s12">
+                <input type="date" name="data_registro" id="data_registro" style="color:gray;">
+                <label for="data_registro">Dia do registro</label>
+            </div>
+        </div>
+    <div class="row">
         <div class="input-field s12">
             <select name="eixo" id="">
         @foreach($criterios as $criterio)
