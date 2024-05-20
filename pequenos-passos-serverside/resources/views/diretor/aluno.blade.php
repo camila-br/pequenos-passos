@@ -5,36 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
+    <link rel="stylesheet" href="{{asset('css/global.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Cadastro de Aluno</title>
 </head>
 <body class="full-height">
 
-<div class="container">
-@if ($errors->any())
-    <div class="">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+<header>
+    <div class="container">
+      <Button>
+        <a href="{{route('home.index')}}"><img src="{{asset('img/back.png')}}"></a>
+      </Button>
     </div>
-@endif
+</header>
+
+<div class="container">
+    @if ($errors->any())
+        <div class="">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <div class="row center">
-    @if (session('sucesso'))
-            <div class="card green white-text" id="alerta" style=";">
-                <div class="card-content">
-                    <span class="card-title">
-                        <i class="material-icons right" style="cursor:pointer;" onclick="closeAlerta()">close</i>
-                    </span>
-                    {{ session('sucesso') }}
+        @if (session('sucesso'))
+                <div class="card green white-text" id="alerta" style=";">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <i class="material-icons right" style="cursor:pointer;" onclick="closeAlerta()">close</i>
+                        </span>
+                        {{ session('sucesso') }}
+                    </div>
                 </div>
-            </div>
-        @endif
+            @endif
     </div>
+
+    
     <div class="row center">
-        <h5>CADASTRAR NOVO ALUNO</h5>
+        <h4>CADASTRAR NOVO ALUNO</h4>
     </div>
     
     <form action="{{ route('aluno.store') }}" method="POST" enctype="multipart/form-data">
@@ -98,7 +110,7 @@
             <a href="" class="btn" style="width:45%;">Cancelar</a>
             <button type="submit" class="btn orange" style="width:45%;">Salvar</button>
         </div>
-        
+        <br>
     </form>
 </div>
 

@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
+    <link rel="stylesheet" href="{{asset('css/global.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Cadastar criterio de avaliação</title>
 </head>
 <body>
+<header>
+    <div class="container">
+      <Button>
+        <a href="{{route('home.index')}}"><img src="{{asset('img/back.png')}}"></a>
+      </Button>
+    </div>
+</header>
+
 <div class="container">
 @if ($errors->any())
     <div class="">
@@ -33,7 +43,7 @@
         @endif
     </div>
     <div class="row center">
-        <h5>CADASTRAR CRITÈRIO DE AVALIAÇÃO</h5>
+        <h4>CADASTRAR CRITÉRIO DE AVALIAÇÃO</h4>
     </div>
     <form action="{{ route('criterio.store') }}" method="post">
         @csrf
