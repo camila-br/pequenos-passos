@@ -27,9 +27,9 @@
     <div class="container">
         <div class="row">
             <h5>Bem vindo, {{ $user->name  }}</h5>
-       </div>
+        </div>
        <div class="row">
-            <h6>selecione o periodo letivo</h6>
+            <strong>Selecione o período letivo:</strong>
        </div>
        <div class="row">
            @foreach($bimestres as $bimestre)
@@ -38,10 +38,15 @@
                 </div>
            @endforeach
        </div>
-       
+       <div class="row">
+            <strong>Encerrar sessão:</strong>
+            <div class="col s12" style="display:flex; width:100%; margin:10px; 0px;">
+                <a href="{{ route('login.logout') }}" class="btn red" style="width:85%;"><i class="material-icons">logout</i></a>
+            </div>
+       </div>
     </div>
-  
-    <a href="{{ route('login.logout') }}">sair</a>
+
+<!-- <a href="{{ route('login.logout') }}">sair</a> -->
     <script src="{{ asset('lib/js/materialize.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>

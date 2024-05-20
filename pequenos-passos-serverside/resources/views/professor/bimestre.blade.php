@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
+    <link rel="stylesheet" href="{{asset('css/global.css')}}">
+  <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Bimestre</title>
 </head>
@@ -23,9 +25,19 @@
     <li><a href="">Sair <i class="material-icons">logout</i></a></li>
   </ul>
      -->
+
+    <header>
+      <div class="container">
+        <Button>
+          <a href="{{route('home.index')}}"><img src="{{asset('img/back.png')}}"></a>
+        </Button>
+      </div>
+  </header>
+  <br>
+
     <div class="container">
         <div class="row">
-            <h6>Selecione a turma</h6>
+            <strong>Selecione a turma:</strong>
         </div>
 
         <div class="row">
