@@ -45,10 +45,10 @@
                 </div>
             </div>
             <div class="row center">
-                <button class="btn blue" type="submit">Entar</button>
+                <button class="btn blue" type="submit">Entrar</button>
             </div>
             <div class="row center">
-            <a href="{{ route('cadastro.index') }}">cadastre-se</a>
+            <a href="{{ route('cadastro.index') }}">Cadastre-se</a>
             </div>
         </form>
     </div>
