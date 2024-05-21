@@ -35,7 +35,7 @@
   </header>
 
   <section>
-    <h1>MINI MATERNAL</h1>
+    <h1>{{ $turma->nome }}</h1>
     <div class="img-profile">
 
       @if($aluno->foto_aluno != '')

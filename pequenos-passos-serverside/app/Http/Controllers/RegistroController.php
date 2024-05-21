@@ -14,10 +14,11 @@ class RegistroController extends Controller
 {
     public function index($ano,$id){
         $aluno=Aluno::find($id);
+        $turma=Turma::where('id',$aluno->turma_id)->first();
         $criterios=Criterio::all();
         $aluno_id=$id;
         $bimestre=Bimestre::where('ano_letivo',$ano)->first();
-        return view('professor/registro',compact('aluno','criterios','aluno_id','bimestre'));
+        return view('professor/registro',compact('aluno', 'turma','criterios','aluno_id','bimestre'));
     }
 
     public function store(Request $r,$ano,$id){

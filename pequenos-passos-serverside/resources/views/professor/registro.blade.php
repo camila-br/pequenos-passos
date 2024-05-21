@@ -44,7 +44,7 @@
   </header>
   
     <section>
-        <strong>MINI MATERNAL</strong>
+        <strong>{{ $turma->nome }}</strong>
         <div class="img-profile">
             @if($aluno->foto_aluno != '')
             <img src="{{ url('storage/'.$aluno->foto_aluno) }}">
