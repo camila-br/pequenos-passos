@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('lib/css/materialize.min.css') }}">
+    <link rel="stylesheet" href="{{asset('css/global.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Cadastre-se</title>
 </head>
@@ -25,6 +27,10 @@
     </div>
 @endif
     <div class="container">
+    <div class="row center">
+            <h4>Cadastre-se</h4>
+            <strong>Pequenos Passos</strong>
+        </div>
         <form action="{{ route('cadastro.store') }}" method="POST">
         @csrf
         <div class="row">
