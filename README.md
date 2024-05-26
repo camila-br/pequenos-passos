@@ -7,7 +7,7 @@ Este projeto foi desenvolvido como parte do Projeto Integrador I da Univesp (Uni
 
 O principal objetivo do projeto é substituir os registros manuais, que resultavam em informações descentralizadas e processos lentos para a coleta de dados, por uma solução digital eficiente e centralizada. 💻📈
 
-O software foi concebido e desenvolvido atendendo às necessidades diárias da escola de Educação Infantil Sol Nascente, onde cada professor pode registrar, acompanhar e analisar o desenvolvimento individual dos alunos de forma mais organizada e acessível. 🎓✨
+O software foi concebido e desenvolvido atendendo às necessidades diárias da escola de Educação Infantil Pequena Semente, onde cada professor pode registrar, acompanhar e analisar o desenvolvimento individual dos alunos de forma mais organizada e acessível. 🎓✨
 
 ## Funcionalidades principais:
 - **Cadastros principais:** No usuário do diretor, é possível realizar os cadastros de uso geral do sistema, como: professor, turma, critérios de avaliação, período letivo e aluno.
